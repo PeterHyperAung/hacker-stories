@@ -5,25 +5,42 @@ import Search from "./components/Search";
 
 const App = () => {
   // const title = "React";
-  const welcome = {
-    greeting: "Hey",
-    title: "React",
-  };
+  // const welcome = {
+  //   greeting: "Hey",
+  //   title: "React",
+  // };
 
-  function getTitle() {
-    return welcome.title;
-  }
+  // function getTitle() {
+  //   return welcome.title;
+  // }
+
+  const stories = [
+    {
+      title: "React",
+      url: "https://reactjs.org/",
+      author: "Jordan Walke",
+      num_comments: 3,
+      points: 4,
+      objectID: 0,
+    },
+    {
+      title: "Redux",
+      url: "https://redux.js.org/",
+      author: "Dan Abramov, Andrew Clark,",
+      num_comments: 2,
+      points: 5,
+      objectID: 1,
+    },
+  ];
 
   return (
     <div className="App">
       <header className="App-header">
-        <h2>
-          {welcome.greeting} {getTitle()}
-        </h2>
+        <h2>{/* {welcome.greeting} {getTitle()} */}</h2>
         <Search />
         <hr />
         {/* render the list here */}
-        <List />
+        <List list={stories} />
         {/* and by the way: that's who you do comments in JSX */}
       </header>
     </div>
