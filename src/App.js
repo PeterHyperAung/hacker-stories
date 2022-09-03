@@ -4,16 +4,6 @@ import List from "./components/List";
 import Search from "./components/Search";
 
 const App = () => {
-  // const title = "React";
-  // const welcome = {
-  //   greeting: "Hey",
-  //   title: "React",
-  // };
-
-  // function getTitle() {
-  //   return welcome.title;
-  // }
-
   const stories = [
     {
       title: "React",
@@ -33,11 +23,15 @@ const App = () => {
     },
   ];
 
+  const handleSearch = (event) => {
+    console.log(event.target.value);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <h2>{/* {welcome.greeting} {getTitle()} */}</h2>
-        <Search />
+        <Search onSearch={handleSearch} />
         <hr />
         {/* render the list here */}
         <List list={stories} />
