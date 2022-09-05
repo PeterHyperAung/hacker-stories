@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import List from "./components/List";
 import Search from "./components/Search";
@@ -23,9 +23,15 @@ const App = () => {
     },
   ];
 
+  const [searchItem, updateData] = useState("");
+
   const handleSearch = (event) => {
-    console.log(event.target.value);
+    updateData(event.target.value);
   };
+
+  const searchedStories = stories.filter((story) =>
+    story.title.toLowerCase().includes(searchItem)
+  );
 
   return (
     <div className="App">
@@ -34,7 +40,7 @@ const App = () => {
         <Search onSearch={handleSearch} />
         <hr />
         {/* render the list here */}
-        <List list={stories} />
+        <List list={searchedStories} />
         {/* and by the way: that's who you do comments in JSX */}
       </header>
     </div>
